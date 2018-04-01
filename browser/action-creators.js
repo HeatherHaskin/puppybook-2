@@ -44,6 +44,24 @@ export const loadOnePuppy = (puppyId) => {
       .then(res => res.data)
       .then(thePuppy => {
         const action = selectPuppy(thePuppy);
+        const msg = new SpeechSynthesisUtterance('I am' + thePuppy.name);
+        const woof = new SpeechSynthesisUtterance('woof');
+        const bark = new SpeechSynthesisUtterance('bark');
+        const meow = new SpeechSynthesisUtterance('meow');
+        const num = Math.floor(Math.random() * 100);
+
+        window.speechSynthesis.speak(msg);
+        if (num < 50) {
+          window.speechSynthesis.speak(woof);
+        } else if (num === 1 || num === 99) {
+          window.speechSynthesis.speak(meow);
+        } else {
+          window.speechSynthesis.speak(bark);
+        }
+        // setInterval(function(){ window.speechSynthesis.speak(woof); }, 3000);
+        // setInterval(function(){ window.speechSynthesis.speak(bark); }, 2000);
+        // window.speechSynthesis.speak(msg);
+
         dispatch(action);
       })
       .catch(err => console.error(err));

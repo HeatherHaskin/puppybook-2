@@ -5,9 +5,7 @@ import { RECEIVE_PUPPIES, SELECT_PUPPY } from './action-creators';
 function allPuppiesReducer (state = [], action) {
   switch (action.type) {
     case RECEIVE_PUPPIES:
-    return Object.assign({}, state, {
-      allPuppies: action.receivedPuppies
-    });
+    return action.receivedPuppies;
     default:
     return state;
   }
@@ -16,9 +14,7 @@ function allPuppiesReducer (state = [], action) {
 function selectedPuppyReducer (state = {}, action) {
   switch (action.type) {
     case SELECT_PUPPY:
-    return Object.assign({}, state, {
-      selectedPuppy: action.selectedPuppy
-    });
+    return action.selectedPuppy;
     default:
     return state;
   }

@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onloadPuppies: function () {
+    onLoadPuppies: function () {
       const thunk = loadPuppies();
       dispatch(thunk);
     }

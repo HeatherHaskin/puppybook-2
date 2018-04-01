@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class AllPuppies extends Component {
 
   componentDidMount () {
-    this.props.onloadPuppies();
+    this.props.onLoadPuppies();
   }
 
   render () {
@@ -19,7 +19,7 @@ export default class AllPuppies extends Component {
                   <Link to={"/puppies/" + puppy.id}> { puppy.name }</Link>
                 </li>
               </ul>
-            )
+            );
           })
         }
       </div>
